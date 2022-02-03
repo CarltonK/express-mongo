@@ -25,24 +25,19 @@ router.post('/', function (req, res, next) {
 
 router.get('/', function (req, res, next) {
 
-    let resp;
-
     Team.find({}, (err, data) => {
         if (err) {
-            console.log('There is an error', err)
+            res.send(`${err}`);
         }
-        data.forEach((entry) => {
-            console.log(entry)
-        })
+        res.send(`${data}`);
     })
-    res.send(`${resp}`);
 })
 
 router.put('/', function (req, res, next) {
 
     const id = req.query.id;
 
-    Team.updateOne({_id: id}, {name: 'A generic Team Name'}, (err, data) => {
+    Team.updateOne({ _id: id }, { name: 'A generic Team Name' }, (err, data) => {
         if (err) {
             console.log('There is an error', err)
         }
@@ -55,7 +50,7 @@ router.delete('/', function (req, res, next) {
 
     const id = req.query.id;
 
-    Team.deleteOne({_id: id}, (err, data) => {
+    Team.deleteOne({ _id: id }, (err, data) => {
         if (err) {
             console.log('There is an error', err)
         }
