@@ -31,20 +31,21 @@ app.use(function(req, res, next) {
 });
 
 // Database Connection
-const dbConnectionString = 'mongodb://localhost/';
-const dbName = 'class_premier_league';
-mongoose.connect(dbConnectionString + dbName)
-const db = mongoose.connection;
+// const dbConnectionString = 'mongodb://localhost/';
+// const dbName = 'premier_league';
+// const MONGODB_URI = process.env.MONGODB_URI || dbConnectionString + dbName;
+// mongoose.connect(MONGODB_URI)
+// const db = mongoose.connection;
 
-// Check Connection
-db.once('open', () => {
-  console.log('Database connected successfully')
-})
+// // Check Connection
+// db.once('open', () => {
+//   console.log('Database connected successfully')
+// })
 
-// Check for DB Errors
-db.on('error', (error) => {
-  console.log(error);
-})
+// // Check for DB Errors
+// db.on('error', (error) => {
+//   console.log(error);
+// })
 
 // error handler
 app.use(function(err, req, res, next) {
