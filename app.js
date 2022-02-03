@@ -25,6 +25,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
 
+console.log('This log signifies an automatic build');
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
